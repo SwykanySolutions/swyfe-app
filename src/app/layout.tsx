@@ -1,6 +1,7 @@
-import './globals.css'
+import './globals.sass'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
+import App from './App'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -15,8 +16,12 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
+    <html lang="en" data-theme="auto" className='h-full'>
+      <body className={`${inter.className} h-full bg-white dark:bg-black text-black dark:text-white`}>
+        <App>
+          {children}
+        </App>
+      </body>
     </html>
   )
 }
